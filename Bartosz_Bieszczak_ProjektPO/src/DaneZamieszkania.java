@@ -1,12 +1,12 @@
-public class Adres extends DaneOsobowe {
+public class DaneZamieszkania extends DaneOsobowe {
     public String ulica;
     public String miasto;
     public String kodPocztowy;
     public String numerDomu;
 
     //Konstruktor zawierające dane obecnej klasy oraz odziedzicozne po klasie DaneOsobowe
-    public Adres(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, String miasto, String ulica, String numerDomu, String kodPocztowy) {
-        super(imie, nazwisko, rokUrodzenia, numerTelefonu, email);
+    public DaneZamieszkania(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, int id, String miasto, String ulica, String numerDomu, String kodPocztowy) {
+        super(imie, nazwisko, rokUrodzenia, numerTelefonu, email, id);
         this.miasto = miasto;
         this.ulica = ulica;
         this.numerDomu = numerDomu;
@@ -18,6 +18,9 @@ public class Adres extends DaneOsobowe {
     }
 
     public void setUlica(String ulica) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.ulica = ulica;
     }
 
@@ -26,6 +29,9 @@ public class Adres extends DaneOsobowe {
     }
 
     public void setMiasto(String miasto) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.miasto = miasto;
     }
 
@@ -34,6 +40,9 @@ public class Adres extends DaneOsobowe {
     }
 
     public void setKodPocztowy(String kodPocztowy) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.kodPocztowy = kodPocztowy;
     }
 
@@ -42,12 +51,15 @@ public class Adres extends DaneOsobowe {
     }
 
     public void setNumerDomu(String numerDomu) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.numerDomu = numerDomu;
     }
 
     //Metoda wymuszona przez klasę abstract wypisująca dane
     @Override
-    public String wypiszDane() {
+    protected String wypiszDane() {
         return "Adres{" +
                 "numerDomu='" + numerDomu + '\'' +
                 ", imie='" + imie + '\'' +

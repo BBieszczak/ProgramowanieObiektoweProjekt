@@ -4,14 +4,16 @@ public abstract class DaneOsobowe {
     protected int rokUrodzenia;
     protected int numerTelefonu;
     protected String email;
+    protected int id;
 
     //Utworzenie przeciążonego konstruktora
-    public DaneOsobowe(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email) {
+    public DaneOsobowe(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, int id) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.rokUrodzenia = rokUrodzenia;
         this.numerTelefonu = numerTelefonu;
         this.email = email;
+        this.id = id;
     }
 
     public DaneOsobowe(String imie, String nazwisko, int rokUrodzenia) {
@@ -26,6 +28,9 @@ public abstract class DaneOsobowe {
     }
 
     public void setImie(String imie) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.imie = imie;
     }
 
@@ -34,6 +39,9 @@ public abstract class DaneOsobowe {
     }
 
     public void setNazwisko(String nazwisko) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.nazwisko = nazwisko;
     }
 
@@ -42,6 +50,9 @@ public abstract class DaneOsobowe {
     }
 
     public void setRokUrodzenia(int rokUrodzenia) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.rokUrodzenia = rokUrodzenia;
     }
 
@@ -50,6 +61,9 @@ public abstract class DaneOsobowe {
     }
 
     public void setNumerTelefonu(int numerTelefonu) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.numerTelefonu = numerTelefonu;
     }
 
@@ -58,9 +72,20 @@ public abstract class DaneOsobowe {
     }
 
     public void setEmail(String email) {
+        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być puste");
+        }
         this.email = email;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     //Dodanie metody abstrakcyjnej
-    public abstract String wypiszDane();
+    protected abstract String wypiszDane();
 }

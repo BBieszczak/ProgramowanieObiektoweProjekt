@@ -19,15 +19,15 @@ public class KomendyTekstowe {
             }
 
             //Instrukacja case przekierewująca do dopowiedniej metody w klasie OperacjeCV
-            switch (numerOperacji) {
-                case 1 ->
-                case 2 ->
-                case 3 ->
-                case 4 ->
-                case 5 ->
-                default ->
-
-            }
+//            switch (numerOperacji) {
+//                case 1 ->
+//                case 2 ->
+//                case 3 ->
+//                case 4 ->
+//                case 5 ->
+//                default ->
+//
+//            }
         }
     }
 }
