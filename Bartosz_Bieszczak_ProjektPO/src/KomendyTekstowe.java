@@ -10,7 +10,7 @@ public class KomendyTekstowe {
         int numerOperacji;
         while (true) {
             System.out.println("===Wybierz opcję===");
-            System.out.println("1 -> Dodaj nowe CV \n2 -> Usuń CV \n3 -> Przeglądaj CV");
+            System.out.println("1 -> Dodaj nowe CV \n2 -> Usuń CV \n3 -> Przeglądaj CV\n");
             numerOperacji = scanner.nextInt();
             if (numerOperacji == 1 || numerOperacji == 2 || numerOperacji == 3 || numerOperacji == 4) {
                 break;
@@ -20,12 +20,12 @@ public class KomendyTekstowe {
 
             //Instrukacja case przekierewująca do dopowiedniej metody w klasie OperacjeCV
             switch (numerOperacji) {
-                case 1 -> OperacjeCV.dodawanieCV();
-                case 2 -> OperacjeCV.usuwanieCV();
-                case 3 -> OperacjeCV.dodawanieCV();
-                case 4 -> OperacjeCV.usuwanieCV();
-                case 5 -> OperacjeCV.usuwanieCV();
-                default -> OperacjeCV.dodawanieCV();
+                case 1 ->
+                case 2 ->
+                case 3 ->
+                case 4 ->
+                case 5 ->
+                default ->
 
             }
         }
