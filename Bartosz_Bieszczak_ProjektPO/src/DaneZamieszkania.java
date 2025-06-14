@@ -5,12 +5,21 @@ public class DaneZamieszkania extends DaneOsobowe {
     public String numerDomu;
 
     //Konstruktor zawierające dane obecnej klasy oraz odziedzicozne po klasie DaneOsobowe
-    public DaneZamieszkania(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, int id, String miasto, String ulica, String numerDomu, String kodPocztowy) {
-        super(imie, nazwisko, rokUrodzenia, numerTelefonu, email, id);
-        this.miasto = miasto;
+
+    public DaneZamieszkania(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, int id, String stanowisko, String poprzednieStanowisko, String hobby, String ulica, String miasto, String kodPocztowy, String numerDomu) {
+        super(imie, nazwisko, rokUrodzenia, numerTelefonu, email, id, stanowisko, poprzednieStanowisko, hobby);
         this.ulica = ulica;
-        this.numerDomu = numerDomu;
+        this.miasto = miasto;
         this.kodPocztowy = kodPocztowy;
+        this.numerDomu = numerDomu;
+    }
+
+    public DaneZamieszkania(String imie, String nazwisko, int rokUrodzenia, String ulica, String miasto, String kodPocztowy, String numerDomu) {
+        super(imie, nazwisko, rokUrodzenia);
+        this.ulica = ulica;
+        this.miasto = miasto;
+        this.kodPocztowy = kodPocztowy;
+        this.numerDomu = numerDomu;
     }
 
     public String getUlica() {
@@ -58,18 +67,13 @@ public class DaneZamieszkania extends DaneOsobowe {
     }
 
     //Metoda wymuszona przez klasę abstract wypisująca dane
+
     @Override
-    protected String wypiszDane() {
-        return "Adres{" +
-                "numerDomu='" + numerDomu + '\'' +
-                ", imie='" + imie + '\'' +
-                ", nazwisko='" + nazwisko + '\'' +
-                ", rokUrodzenia=" + rokUrodzenia +
-                ", numerTelefonu=" + numerTelefonu +
-                ", email='" + email + '\'' +
-                ", ulica='" + ulica + '\'' +
-                ", miasto='" + miasto + '\'' +
-                ", kodPocztowy='" + kodPocztowy + '\'' +
-                '}';
+    public String toString() {
+        return super.toString() +
+                ", Ulica: " + ulica +
+                ", Miasto: " + miasto +
+                ", Kod pocztowy: " + kodPocztowy +
+                ", Numer domu: " + numerDomu;
     }
 }
