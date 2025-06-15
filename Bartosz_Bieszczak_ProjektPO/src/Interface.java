@@ -1,9 +1,9 @@
 public interface Interface {
-    public void createAccount();
+    public void createCV();
 
-    public void viewAccounts();
+    public void viewCV();
 
-    public void updateAccounts();
+    public void updateCV();
 
-    public void deleteAccounts();
+    public void deleteCV();
 }

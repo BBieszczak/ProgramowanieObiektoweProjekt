@@ -1,8 +1,8 @@
 public class DaneZamieszkania extends DaneOsobowe {
-    public String ulica;
-    public String miasto;
-    public String kodPocztowy;
-    public String numerDomu;
+    protected String ulica;
+    protected String miasto;
+    protected String kodPocztowy;
+    protected String numerDomu;
 
     //Konstruktor zawierające dane obecnej klasy oraz odziedzicozne po klasie DaneOsobowe
 
@@ -27,8 +27,8 @@ public class DaneZamieszkania extends DaneOsobowe {
     }
 
     public void setUlica(String ulica) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (ulica == null || ulica.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole ulica nie może być puste");
         }
         this.ulica = ulica;
     }
@@ -38,8 +38,8 @@ public class DaneZamieszkania extends DaneOsobowe {
     }
 
     public void setMiasto(String miasto) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (miasto == null || miasto.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole miasto nie może być puste");
         }
         this.miasto = miasto;
     }
@@ -49,8 +49,8 @@ public class DaneZamieszkania extends DaneOsobowe {
     }
 
     public void setKodPocztowy(String kodPocztowy) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (kodPocztowy == null || kodPocztowy.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole kodPocztowy nie może być puste");
         }
         this.kodPocztowy = kodPocztowy;
     }
@@ -60,16 +60,15 @@ public class DaneZamieszkania extends DaneOsobowe {
     }
 
     public void setNumerDomu(String numerDomu) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
+        if ( numerDomu == null ||  numerDomu.replace(" ", " ").isEmpty()) {
             throw new IllegalArgumentException("Pole imie nie może być puste");
         }
         this.numerDomu = numerDomu;
     }
 
-    //Metoda wymuszona przez klasę abstract wypisująca dane
-
+    //metoda wyświetlająca dane z obecnej klasy i klasy dziedzicącej
     @Override
-    public String toString() {
+    protected String podajDane() {
         return super.toString() +
                 ", Ulica: " + ulica +
                 ", Miasto: " + miasto +

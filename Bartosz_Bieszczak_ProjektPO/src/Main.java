@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        KomendyTekstowe.startProgramu();
+        Run.startProgramu();
     }
 }

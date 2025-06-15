@@ -10,8 +10,6 @@ public class DaneOsobowe {
     protected String hobby;
 
     //Utworzenie przeciążonego konstruktora
-
-
     public DaneOsobowe(String imie, String nazwisko, int rokUrodzenia, int numerTelefonu, String email, int id, String stanowisko, String poprzednieStanowisko, String hobby) {
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -24,7 +22,7 @@ public class DaneOsobowe {
         this.hobby = hobby;
     }
 
-    public DaneOsobowe(String imie, String nazwisko, int rokUrodzenia) {
+    protected DaneOsobowe(String imie, String nazwisko, int rokUrodzenia) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.rokUrodzenia = rokUrodzenia;
@@ -47,8 +45,8 @@ public class DaneOsobowe {
     }
 
     public void setNazwisko(String nazwisko) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (nazwisko == null || nazwisko.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole imie nie może być nazwisko");
         }
         this.nazwisko = nazwisko;
     }
@@ -58,8 +56,8 @@ public class DaneOsobowe {
     }
 
     public void setRokUrodzenia(int rokUrodzenia) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (rokUrodzenia <= 1900 || rokUrodzenia >= 2010) {
+            throw new IllegalArgumentException("Rok urodzeia musi być wieksze od 1900 i mniejszy niż 2010.");
         }
         this.rokUrodzenia = rokUrodzenia;
     }
@@ -69,8 +67,8 @@ public class DaneOsobowe {
     }
 
     public void setNumerTelefonu(int numerTelefonu) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (numerTelefonu <= 0) {
+            throw new IllegalArgumentException("Numer telefonu nie może być ujemny.");
         }
         this.numerTelefonu = numerTelefonu;
     }
@@ -80,8 +78,8 @@ public class DaneOsobowe {
     }
 
     public void setEmail(String email) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (email== null || email.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole email nie może być puste");
         }
         this.email = email;
     }
@@ -91,6 +89,9 @@ public class DaneOsobowe {
     }
 
     public void setId(int id) {
+        if (id <= 0) {
+            throw new IllegalArgumentException("ID musi być wieksze od zera.");
+        }
         this.id = id;
     }
 
@@ -98,9 +99,9 @@ public class DaneOsobowe {
         return stanowisko;
     }
 
-    public void setStanowisko(String stanowsiko) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            //throw new NieprawidłoweDaneException("Pole nie może być puste");
+    public void setStanowisko(String stanowisko) {
+        if (stanowisko == null || stanowisko.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole stanowisko nie może być puste");
         }
         this.stanowisko = stanowisko;
     }
@@ -110,8 +111,8 @@ public class DaneOsobowe {
     }
 
     public void setHobby(String hobby) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (hobby == null || hobby.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole hobby nie może być puste");
         }
         this.hobby = hobby;
     }
@@ -121,14 +122,14 @@ public class DaneOsobowe {
     }
 
     public void setPoprzednieStanowisko(String poprzednieStanowisko) {
-        if (imie == null || imie.replace(" ", " ").isEmpty()) {
-            throw new IllegalArgumentException("Pole imie nie może być puste");
+        if (poprzednieStanowisko == null || poprzednieStanowisko.replace(" ", " ").isEmpty()) {
+            throw new IllegalArgumentException("Pole poprzdnie stanowisko nie może być puste");
         }
         this.poprzednieStanowisko = poprzednieStanowisko;
     }
 
-    @Override
-    public String toString() {
+    //metoda wyświetlająca dane
+    protected String podajDane() {
         return "Imię: " + imie +
                 ", Nazwisko: " + nazwisko +
                 ", Rok urodzenia: " + rokUrodzenia +
